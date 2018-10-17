@@ -40,12 +40,12 @@ public class WallTest {
     }
 
     @Test
-    public void shouldReturnInReversedOrder() {
+    public void shouldReturnTweetsInReversedOrder() {
         saveTweetWithMessage(MESSAGE);
         saveTweetWithMessage(OTHER_MESSAGE);
         saveTweetWithMessage(YET_ANOTHER_MESSAGE);
 
-        List<Tweet> userWall = wall.findAllByUserOrderByIdDesc(USER);
+        List<Tweet> userWall = wall.findAllByOrderByIdDesc();
 
         assertEquals(YET_ANOTHER_MESSAGE, userWall.get(0).getMessage());
         assertEquals(OTHER_MESSAGE, userWall.get(1).getMessage());

@@ -12,7 +12,7 @@ public class TweetTest {
 
     @Test
     public void shouldBeOf140CharactersMax() {
-        String maxLengthTweet = getTweetOfLength(MAX_LENGTH);
+        String maxLengthTweet = newTweetOf(MAX_LENGTH);
 
         Tweet tweet = new Tweet(DUMMY_USER, maxLengthTweet);
 
@@ -21,14 +21,14 @@ public class TweetTest {
 
     @Test
     public void shouldBeInvalidIfMoreThan140Characters() {
-        String maxLengthTweet = getTweetOfLength(MAX_LENGTH + 1);
+        String maxLengthTweet = newTweetOf(MAX_LENGTH + 1);
 
         Tweet tweet = new Tweet(DUMMY_USER, maxLengthTweet);
 
         assertEquals(INVALID, tweet.getMessage());
     }
 
-    private static String getTweetOfLength(int length) {
+    private static String newTweetOf(int length) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
             stringBuilder.append("a");
